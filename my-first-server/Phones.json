@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "brand": "Samsung",
+    "model": "Galaxy S24",
+    "price": 899,
+    "specs": {
+      "ram": "8GB",
+      "storage": "256GB",
+      "battery": "4000mAh"
+    }
+  },
+  {
+    "id": 2,
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "price": 999,
+    "specs": {
+      "ram": "6GB",
+      "storage": "128GB",
+      "battery": "3279mAh"
+    }
+  },
+  {
+    "id": 3,
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13 Pro",
+    "price": 299,
+    "specs": {
+      "ram": "8GB",
+      "storage": "128GB",
+      "battery": "5000mAh"
+    }
+  },
+  {
+    "id": 4,
+    "brand": "OnePlus",
+    "model": "OnePlus 12",
+    "price": 749,
+    "specs": {
+      "ram": "12GB",
+      "storage": "256GB",
+      "battery": "5400mAh"
+    }
+  },
+  {
+    "id": 5,
+    "brand": "Google",
+    "model": "Pixel 8",
+    "price": 699,
+    "specs": {
+      "ram": "8GB",
+      "storage": "128GB",
+      "battery": "4575mAh"
+    }
+  }
+]

@@ -27,6 +27,8 @@ const database = client.db('coffeesdb');
 const coffeesCollection = database.collection('coffees');
 const usersCollection = database.collection('users');
 
+// Coffee Related APIs 
+
 // Create 
 app.post('/coffees', async(req, res)=>{
   const newCoffee = req.body;
@@ -74,11 +76,44 @@ app.delete('/coffees/:id', async(req, res)=>{
 
 
 // User Related APIs
+
+// Read
+app.get('/users', async(req, res)=>{
+  // const cursor = usersCollection.find()
+  // const result = await toArray(cursor);
+  const result = await usersCollection.find().toArray();
+  res.send(result);
+})
+
+// Create
  app.post('/users', async(req, res)=>{
   const userProfile = req.body;
   const result = await usersCollection.insertOne(userProfile);
   res.send(result);
  })
+
+//  Update
+app.patch('/users',async(req, res)=>{
+  const {email,lastSignInTime} = req.body;
+  const filter = {email: email};
+  const updatedDoc = {
+    $set:{
+      lastSignInTime: lastSignInTime
+    }
+  }
+  const result = await usersCollection.updateOne(filter,updatedDoc);
+  res.send(result);
+
+})
+
+// Delete
+app.delete('/users/:id', async(req, res)=>{
+  const id = req.params.id;
+  const query = {_id: new ObjectId(id)};
+  const result = await usersCollection.deleteOne(query);
+  res.send(result);
+})
+
 
 await client.db('admin').command({ping:1});
 console.log('Pinged your deployment')

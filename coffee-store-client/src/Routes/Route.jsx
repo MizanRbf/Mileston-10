@@ -7,6 +7,7 @@ import CoffeeDetails from "../Components/CoffeeDetails";
 import ErrorPage from "../Pages/ErrorPage";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import Users from "../Components/Users";
 
 export const router = createBrowserRouter([
   {
@@ -46,5 +47,10 @@ export const router = createBrowserRouter([
   {
     path: "/*",
     Component: ErrorPage,
+  },
+  {
+    path: "/users",
+    loader: () => fetch("http://localhost:3000/users"),
+    Component: Users,
   },
 ]);

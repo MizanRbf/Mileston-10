@@ -54,14 +54,32 @@ const Login = () => {
     // Login User
     loginUser(email, password)
       .then((result) => {
-        setUser(result.user);
-        setLoading(false);
-        Swal.fire({
-          title: "Good job!",
-          text: "You have logged in successfully!",
-          icon: "success",
-        });
-        navigate(location.state || "/");
+        // update last sign in to the database
+        const loginInfo = {
+          email,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
+        fetch("http://localhost:3000/users", {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loginInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              Swal.fire({
+                title: "Good job!",
+                text: "You have logged in successfully!",
+                icon: "success",
+              });
+              setUser(result.user);
+              setLoading(false);
+
+              navigate(location.state || "/");
+            }
+          });
       })
       .catch((error) => {
         console.log(error);

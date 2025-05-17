@@ -13,8 +13,10 @@ const Header = () => {
         <h1 className="text-[30px] text-white">Espresso Emporium</h1>
       </div>
       <div className="text-white space-x-4">
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/register">Register</NavLink>
         <NavLink to="/login">Login</NavLink>
+        <NavLink to="/users">Users</NavLink>
       </div>
     </div>
   );

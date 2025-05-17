@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
-const Error = () => {
+const ErrorPage = () => {
   return (
     <div>
       <Header></Header>
@@ -14,4 +14,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default ErrorPage;

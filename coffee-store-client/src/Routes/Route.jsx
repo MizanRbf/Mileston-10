@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../Layouts/RootLayout";
 import Home from "../Pages/Home";
-import Error from "../Pages/Error";
 import AddCoffee from "../Components/AddCoffee";
 import UpdateCoffee from "../Components/UpdateCoffee";
 import CoffeeDetails from "../Components/CoffeeDetails";
+import ErrorPage from "../Pages/ErrorPage";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 export const router = createBrowserRouter([
   {
@@ -30,11 +32,19 @@ export const router = createBrowserRouter([
     Component: UpdateCoffee,
   },
   {
+    path: "/login",
+    Component: Login,
+  },
+  {
+    path: "/register",
+    Component: Register,
+  },
+  {
     path: "/addCoffee",
     Component: AddCoffee,
   },
   {
     path: "/*",
-    Component: Error,
+    Component: ErrorPage,
   },
 ]);

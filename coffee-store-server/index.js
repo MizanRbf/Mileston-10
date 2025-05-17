@@ -25,6 +25,7 @@ try {
 await client.connect();
 const database = client.db('coffeesdb');
 const coffeesCollection = database.collection('coffees');
+const usersCollection = database.collection('users');
 
 // Create 
 app.post('/coffees', async(req, res)=>{
@@ -71,6 +72,13 @@ app.delete('/coffees/:id', async(req, res)=>{
   res.send(result);
 })
 
+
+// User Related APIs
+ app.post('/users', async(req, res)=>{
+  const userProfile = req.body;
+  const result = await usersCollection.insertOne(userProfile);
+  res.send(result);
+ })
 
 await client.db('admin').command({ping:1});
 console.log('Pinged your deployment')
